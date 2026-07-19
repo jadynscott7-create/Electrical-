@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MNM Electrical Services — trusted Campbelltown electricians for residential, commercial, emergency, switchboard and EV charger work across Macarthur and surrounding Sydney suburbs.">
+  <title>MNM Electrical Services | Campbelltown Electrician</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:#071417;
+      --ink-2:#102326;
+      --teal:#0d6f73;
+      --teal-dark:#084c4f;
+      --mint:#78e7df;
+      --paper:#f3f7f7;
+      --white:#fff;
+      --muted:#647477;
+      --line:rgba(7,20,23,.12);
+      --shadow:0 24px 70px rgba(4,40,43,.18);
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Manrope",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:var(--white);
+      line-height:1.6;
+    }
+    img{display:block;width:100%}
+    a{text-decoration:none;color:inherit}
+    button,input,textarea,select{font:inherit}
+    .container{width:min(1180px,calc(100% - 36px));margin:auto}
+
+    .site-header{
+      position:fixed;inset:0 0 auto 0;z-index:1000;
+      background:rgba(5,23,25,.78);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.1)
+    }
+    .nav{
+      min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px
+    }
+    .brand{display:flex;align-items:center;gap:12px;color:#fff}
+    .brand-mark{
+      width:48px;height:48px;border-radius:14px;background:#fff;color:var(--teal-dark);
+      display:grid;place-items:center;font-weight:900;font-size:1.5rem;box-shadow:0 10px 28px rgba(0,0,0,.18)
+    }
+    .brand-copy strong{display:block;line-height:1;font-size:1rem}
+    .brand-copy span{display:block;margin-top:5px;color:rgba(255,255,255,.58);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase}
+    .nav-links{display:flex;align-items:center;gap:24px;color:rgba(255,255,255,.82);font-weight:700;font-size:.92rem}
+    .nav-links a:hover{color:var(--mint)}
+    .nav-cta{
+      padding:12px 18px;border-radius:999px;background:var(--mint)!important;color:var(--teal-dark)!important;font-weight:900
+    }
+    .menu-btn{display:none;width:44px;height:44px;border:0;border-radius:12px;background:rgba(255,255,255,.1);color:#fff;font-size:1.25rem}
+
+    .hero{
+      min-height:820px;display:grid;align-items:end;color:#fff;position:relative;overflow:hidden;
+      background:
+        linear-gradient(90deg,rgba(1,14,16,.96) 0%,rgba(1,14,16,.78) 43%,rgba(1,14,16,.22) 100%),
+        url("assets/hero-house.jpeg") center/cover no-repeat;
+      padding:150px 0 88px
+    }
+    .hero::before{
+      content:"";position:absolute;inset:auto -180px -200px auto;width:520px;height:520px;border-radius:50%;
+      background:rgba(120,231,223,.14);filter:blur(6px)
+    }
+    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.25fr .75fr;gap:50px;align-items:end}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;
+      background:rgba(120,231,223,.13);color:var(--mint);font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase
+    }
+    .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 5px rgba(120,231,223,.14)}
+    h1{
+      margin:20px 0 20px;max-width:800px;font-size:clamp(3.4rem,7.6vw,7rem);
+      line-height:.92;letter-spacing:-.07em
+    }
+    h1 span{color:var(--mint)}
+    .hero-copy{max-width:680px;margin:0;color:rgba(255,255,255,.76);font-size:clamp(1rem,2vw,1.18rem)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+    .btn{
+      min-height:56px;padding:0 22px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;
+      border:1px solid transparent;font-weight:900;transition:.2s ease
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--mint);color:var(--teal-dark);box-shadow:0 14px 38px rgba(120,231,223,.22)}
+    .btn-secondary{border-color:rgba(255,255,255,.26);background:rgba(255,255,255,.07);color:#fff}
+    .hero-card{
+      padding:26px;border-radius:var(--radius);background:rgba(255,255,255,.09);
+      border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(18px);box-shadow:var(--shadow)
+    }
+    .hero-card h3{margin:0 0 12px;font-size:1.15rem}
+    .hero-card ul{list-style:none;padding:0;margin:0}
+    .hero-card li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.76)}
+    .hero-card li:last-child{border-bottom:0}
+    .tick{color:var(--mint);font-weight:900;margin-right:8px}
+
+    .trust{position:relative;z-index:4;margin-top:-40px}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+    .trust-item{padding:25px 22px;border-right:1px solid var(--line)}
+    .trust-item:last-child{border-right:0}
+    .trust-item strong{display:block;font-size:1.3rem}
+    .trust-item span{font-size:.86rem;color:var(--muted)}
+
+    section{padding:100px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:34px}
+    .section-head h2{margin:14px 0 0;font-size:clamp(2.4rem,5vw,4.8rem);line-height:.98;letter-spacing:-.06em}
+    .section-head p{max-width:560px;margin:0;color:var(--muted)}
+
+    .services{background:var(--paper)}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service-card{
+      min-height:280px;padding:26px;border-radius:22px;background:#fff;border:1px solid var(--line);
+      box-shadow:0 14px 34px rgba(5,45,48,.05);transition:.2s ease
+    }
+    .service-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .service-icon{width:52px;height:52px;border-radius:15px;background:rgba(120,231,223,.18);display:grid;place-items:center;font-size:1.4rem}
+    .service-card h3{margin:20px 0 10px;font-size:1.22rem}
+    .service-card p{margin:0;color:var(--muted);font-size:.93rem}
+
+    .portfolio-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+    .portfolio-stack{display:grid;gap:18px}
+    .project{
+      position:relative;overflow:hidden;border-radius:24px;min-height:260px;background:#111;box-shadow:var(--shadow)
+    }
+    .project.large{min-height:640px}
+    .project img{height:100%;object-fit:cover}
+    .project::after{
+      content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.74) 100%)
+    }
+    .project-label{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;color:#fff}
+    .project-label strong{display:block;font-size:1.16rem}
+    .project-label span{display:block;color:rgba(255,255,255,.7);font-size:.86rem;margin-top:4px}
+
+    .about{background:var(--ink)}
+    .about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:54px;align-items:center}
+    .about-image{
+      min-height:570px;border-radius:28px;overflow:hidden;box-shadow:var(--shadow)
+    }
+    .about-image img{height:100%;object-fit:cover}
+    .about-copy{color:#fff}
+    .about-copy h2{margin:14px 0 18px;font-size:clamp(2.4rem,5vw,4.5rem);line-height:1;letter-spacing:-.06em}
+    .about-copy p{color:rgba(255,255,255,.66)}
+    .feature-list{display:grid;gap:12px;margin-top:26px}
+    .feature{padding:15px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+    .feature strong{display:block}
+    .feature span{display:block;color:rgba(255,255,255,.58);font-size:.9rem;margin-top:4px}
+
+    .reviews{background:var(--teal-dark);color:#fff}
+    .reviews .section-head p{color:rgba(255,255,255,.65)}
+    .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .review-card{padding:25px;border-radius:22px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
+    .stars{color:#ffd765;letter-spacing:.12em}
+    .review-card p{color:rgba(255,255,255,.74)}
+    .review-card strong{display:block;margin-top:16px}
+
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    .contact-copy,.quote-panel{padding:34px;border-radius:26px}
+    .contact-copy{background:var(--paper);border:1px solid var(--line)}
+    .contact-copy h2{font-size:clamp(2.2rem,5vw,4rem);line-height:1;letter-spacing:-.055em;margin:16px 0}
+    .contact-copy p{color:var(--muted)}
+    .areas{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:24px}
+    .area{padding:12px 14px;border-radius:12px;background:#fff;border:1px solid var(--line);font-weight:800;font-size:.88rem}
+    .quote-panel{background:var(--teal);color:#fff;box-shadow:var(--shadow)}
+    .quote-panel h3{font-size:2rem;letter-spacing:-.04em;margin:0 0 8px}
+    .quote-panel p{color:rgba(255,255,255,.7)}
+    .quote-form{display:grid;gap:12px;margin-top:20px}
+    .field{width:100%;padding:15px 16px;border:0;border-radius:13px;outline:0;background:rgba(255,255,255,.97)}
+    textarea.field{min-height:120px;resize:vertical}
+    .submit{border:0;cursor:pointer;background:var(--mint);color:var(--teal-dark)}
+
+    footer{background:#041416;color:#fff;padding:48px 0 24px}
+    .footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:36px}
+    footer p,footer a,footer span{color:rgba(255,255,255,.62)}
+    footer h4{margin:0 0 12px}
+    .footer-links{display:grid;gap:8px}
+    .copyright{margin-top:34px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.45);font-size:.82rem}
+    .mobile-call{display:none}
+
+    @media(max-width:900px){
+      .nav-links{display:none;position:absolute;top:82px;left:18px;right:18px;padding:18px;border-radius:16px;background:var(--teal-dark);box-shadow:var(--shadow)}
+      .nav-links.open{display:grid}
+      .menu-btn{display:block}
+      .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+      .hero{min-height:auto;background-position:60% center}
+      .hero-card{max-width:520px}
+      .trust-grid{grid-template-columns:repeat(2,1fr)}
+      .trust-item:nth-child(2){border-right:0}
+      .trust-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .service-grid,.review-grid{grid-template-columns:repeat(2,1fr)}
+      .portfolio-grid{grid-template-columns:1fr}
+      .project.large{min-height:480px}
+      .section-head{display:block}
+      .section-head p{margin-top:16px}
+    }
+
+    @media(max-width:620px){
+      .container{width:min(100% - 28px,1180px)}
+      .brand-copy span{display:none}
+      h1{font-size:clamp(3rem,15vw,5rem)}
+      .hero{padding:138px 0 64px}
+      .hero-actions{display:grid}
+      .btn{width:100%}
+      .trust{margin-top:-22px}
+      .trust-item{padding:19px 15px}
+      .trust-item strong{font-size:1.05rem}
+      section{padding:76px 0}
+      .service-grid,.review-grid,.footer-grid{grid-template-columns:1fr}
+      .project.large{min-height:400px}
+      .about-image{min-height:420px}
+      .areas{grid-template-columns:1fr}
+      .mobile-call{
+        display:flex;position:fixed;z-index:999;left:14px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));
+        min-height:58px;align-items:center;justify-content:center;border-radius:16px;background:var(--mint);color:var(--teal-dark);
+        font-weight:900;box-shadow:0 16px 40px rgba(0,0,0,.26)
+      }
+      body{padding-bottom:76px}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <div class="brand-mark">⚡</div>
+        <div class="brand-copy">
+          <strong>MNM Electrical</strong>
+          <span>Your local sparky</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#work">Our Work</a>
+        <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
+        <a class="nav-cta" href="tel:0405271636">Call 0405 271 636</a>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">24/7 electrician across Macarthur</span>
+          <h1>Powering homes. <span>Built on trust.</span></h1>
+          <p class="hero-copy">
+            Residential, commercial and emergency electrical services delivered by a locally owned Campbelltown team with more than 20 years of experience.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:0405271636">Call 0405 271 636</a>
+            <a class="btn btn-secondary" href="#quote">Request a free quote</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h3>Why choose MNM Electrical</h3>
+          <ul>
+            <li><span class="tick">✓</span> Locally owned and operated</li>
+            <li><span class="tick">✓</span> Residential, commercial and emergency work</li>
+            <li><span class="tick">✓</span> EV charger and switchboard specialists</li>
+            <li><span class="tick">✓</span> Free, detailed quotes</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <div class="trust">
+      <div class="container trust-grid">
+        <div class="trust-item"><strong>20+ Years</strong><span>Industry experience</span></div>
+        <div class="trust-item"><strong>24/7</strong><span>Emergency availability</span></div>
+        <div class="trust-item"><strong>300+ Reviews</strong><span>Trusted by local customers</span></div>
+        <div class="trust-item"><strong>Free Quotes</strong><span>Clear pricing upfront</span></div>
+      </div>
+    </div>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Electrical services</span>
+            <h2>One team for every job.</h2>
+          </div>
+          <p>From new homes and lighting upgrades to switchboards, data cabling and urgent call-outs, MNM Electrical handles it safely and professionally.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-icon">🏠</div>
+            <h3>Residential Electrical</h3>
+            <p>Rewiring, renovations, new home builds, power points, lighting, fans and general electrical repairs.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🏢</div>
+            <h3>Commercial Electrical</h3>
+            <p>Office fit-outs, maintenance and detailed quoting designed around commercial deadlines and requirements.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🚨</div>
+            <h3>Emergency Call-Outs</h3>
+            <p>Fast help for faults, outages, unsafe wiring and urgent electrical issues, available 24 hours a day.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🔋</div>
+            <h3>EV Charger Installation</h3>
+            <p>Home and commercial electric vehicle charger installation completed safely and professionally.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">⚙️</div>
+            <h3>Switchboard Upgrades</h3>
+            <p>Modern switchboard replacements, safety switch upgrades and electrical panel repairs.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🌐</div>
+            <h3>Data & Fibre Cabling</h3>
+            <p>Structured data cabling, fibre optic work and reliable connectivity for homes and businesses.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Recent projects</span>
+            <h2>Work that speaks for itself.</h2>
+          </div>
+          <p>Real installations completed by MNM Electrical across homes and businesses throughout the region.</p>
+        </div>
+
+        <div class="portfolio-grid">
+          <article class="project large">
+            <img src="assets/kitchen-lighting.jpeg" alt="Modern kitchen lighting installation by MNM Electrical">
+            <div class="project-label">
+              <strong>Kitchen & feature lighting</strong>
+              <span>Clean, modern lighting installed to suit the space.</span>
+            </div>
+          </article>
+
+          <div class="portfolio-stack">
+            <article class="project">
+              <img src="assets/ceiling-fans.jpeg" alt="Ceiling fan installation">
+              <div class="project-label">
+                <strong>Ceiling fan installations</strong>
+                <span>Indoor and outdoor fan installation.</span>
+              </div>
+            </article>
+
+            <article class="project">
+              <img src="assets/switchboard.jpeg" alt="Switchboard installation and upgrade">
+              <div class="project-label">
+                <strong>Switchboards & safety upgrades</strong>
+                <span>Neat, labelled and professionally completed.</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="portfolio-grid" style="margin-top:18px;grid-template-columns:.85fr 1.15fr;">
+          <article class="project">
+            <img src="assets/feature-light.jpeg" alt="Feature pendant lighting installation">
+            <div class="project-label">
+              <strong>Feature pendant lighting</strong>
+              <span>Statement lighting installed with precision.</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <img src="assets/hero-house.jpeg" alt="Exterior lighting installation on modern home">
+            <div class="project-label">
+              <strong>Exterior lighting</strong>
+              <span>Bright, secure and built to improve street appeal.</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="assets/feature-light.jpeg" alt="MNM Electrical feature lighting work">
+        </div>
+
+        <div class="about-copy">
+          <span class="eyebrow">Locally owned</span>
+          <h2>Your local electrician, backed by experience.</h2>
+          <p>
+            Led by Moustafa Mirakhor, MNM Electrical Services is a Campbelltown-based electrical contractor servicing the Macarthur region and surrounding Sydney suburbs.
+          </p>
+          <p>
+            With more than 20 years of industry experience, the business is built around reliable workmanship, honest advice and responsive service.
+          </p>
+
+          <div class="feature-list">
+            <div class="feature"><strong>Clear communication</strong><span>Detailed quotes and straightforward advice before the job begins.</span></div>
+            <div class="feature"><strong>Quality workmanship</strong><span>Safe, tidy and professional electrical work on every project.</span></div>
+            <div class="feature"><strong>Local service</strong><span>Friendly support from a locally owned Macarthur business.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Customer feedback</span>
+            <h2>Trusted across the community.</h2>
+          </div>
+          <p>MNM Electrical has built a strong reputation through reliable service, professional work and clear communication.</p>
+        </div>
+
+        <div class="review-grid">
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Excellent sparky, cleans up after the work is done and is very punctual. Highly recommended.”</p>
+            <strong>Local customer</strong>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Fast response, clear quote and professional work from start to finish.”</p>
+            <strong>Campbelltown customer</strong>
+          </article>
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>“Reliable, knowledgeable and easy to deal with. We would definitely use MNM again.”</p>
+            <strong>Macarthur customer</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="quote">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <span class="eyebrow">Service areas</span>
+          <h2>Servicing Campbelltown and beyond.</h2>
+          <p>MNM Electrical services homes and businesses throughout the Macarthur region and surrounding Sydney suburbs.</p>
+          <div class="areas">
+            <div class="area">Campbelltown</div>
+            <div class="area">Macarthur</div>
+            <div class="area">Camden</div>
+            <div class="area">Narellan</div>
+            <div class="area">Gregory Hills</div>
+            <div class="area">Oran Park</div>
+            <div class="area">Liverpool</div>
+            <div class="area">Glenmore Park</div>
+            <div class="area">Penrith</div>
+            <div class="area">Surrounding suburbs</div>
+          </div>
+        </div>
+
+        <div class="quote-panel">
+          <h3>Request a free quote</h3>
+          <p>Send your job details directly to MNM Electrical.</p>
+
+          <form class="quote-form" id="quoteForm">
+            <input class="field" id="name" type="text" placeholder="Your name" required>
+            <input class="field" id="phone" type="tel" placeholder="Phone number" required>
+            <select class="field" id="service" required>
+              <option value="">Select a service</option>
+              <option>Residential electrical</option>
+              <option>Commercial electrical</option>
+              <option>Emergency electrician</option>
+              <option>EV charger installation</option>
+              <option>Switchboard upgrade</option>
+              <option>Data or fibre cabling</option>
+              <option>Other electrical work</option>
+            </select>
+            <textarea class="field" id="message" placeholder="Tell us briefly about the job"></textarea>
+            <button class="btn submit" type="submit">Send enquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="#top">
+            <div class="brand-mark">⚡</div>
+            <div class="brand-copy">
+              <strong>MNM Electrical</strong>
+              <span>Your local sparky</span>
+            </div>
+          </a>
+          <p style="max-width:460px;margin-top:18px;">Residential, commercial, emergency and specialised electrical services across Campbelltown, Macarthur and surrounding Sydney suburbs.</p>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <div class="footer-links">
+            <a href="tel:0405271636">0405 271 636</a>
+            <a href="mailto:mnmelectricalservices@gmail.com">mnmelectricalservices@gmail.com</a>
+            <span>Available 24/7</span>
+          </div>
+        </div>
+
+        <div>
+          <h4>Business</h4>
+          <div class="footer-links">
+            <span>MNM Electrical Services PTY LTD</span>
+            <span>ABN 24 604 446 184</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright">© <span id="year"></span> MNM Electrical Services. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <a class="mobile-call" href="tel:0405271636">📞 Call MNM Electrical</a>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => navLinks.classList.toggle("open"));
+    document.querySelectorAll("#navLinks a").forEach(link => {
+      link.addEventListener("click", () => navLinks.classList.remove("open"));
+    });
+
+    document.getElementById("quoteForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const service = document.getElementById("service").value;
+      const message = document.getElementById("message").value.trim();
+
+      const subject = encodeURIComponent("Website enquiry — " + service);
+      const body = encodeURIComponent(
+        "Name: " + name + "\n" +
+        "Phone: " + phone + "\n" +
+        "Service: " + service + "\n\n" +
+        "Job details:\n" + message
+      );
+
+      window.location.href = "mailto:mnmelectricalservices@gmail.com?subject=" + subject + "&body=" + body;
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
